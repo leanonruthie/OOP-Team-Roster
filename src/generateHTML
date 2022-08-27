@@ -20,8 +20,8 @@ function renderEmployee(name, icon, role, id, email, office, github, school) {
     liId.innerText = "Employee ID: " + id;
     liEmail.innerText = "Email: " + email;
     liOffice.innerText = "Office: " + office;
-    const liGithub = document.createElement("li");
-    const liSchool = document.createElement("li");
+    liGithub.innerText = document.createElement("li");
+    liSchool.innerText = document.createElement("li");
 
     ul.appendChild(name);
     ul.appendChild(role);
@@ -35,18 +35,18 @@ function renderEmployee(name, icon, role, id, email, office, github, school) {
 }
 
 // Below are the tweaked functions with correct parameter
-const managerName = `${data.managerName}`;
-const managerID = `${data.managerID}`;
-const managerEmail = `${data.managerEmail}`;
-const managerOffice = `${data.office}`;
-const engineerName = `${data.engineerName}`;
-const engineerID = `${data.engineerID}`;
-const engineerEmail = `${data.engineerEmail}`;
-const engineerGithub=`${data.github}`
-const internName = `${data.internName}`;
-const internID = `${data.internID}`;
-const internEmail = `${data.internEmail}`;
-const internSchool=`${data.school}}`
+var managerName = ${data.managerName};
+var managerID = ${data.managerID};
+var managerEmail = ${data.managerEmail};
+var managerOffice = `${data.office};
+var engineerName = ${data.engineerName};
+var engineerID = ${data.engineerID};
+var engineerEmail = ${data.engineerEmail};
+var engineerGithub= ${data.github};
+var internName = ${data.internName};
+var internID = ${data.internID};
+var internEmail = ${data.internEmail};
+var internSchool=${data.school};
 
 
 function renderManager() {
@@ -88,9 +88,9 @@ function renderIntern() {
 // Work reference #2 - My HW last week - Readme Generator Using NodeKS
 
 function generateHTML(data) {
-    `${renderManager(data)}`;
-    `${renderEngineer(data)}`;
-    `${renderIntern(data)}`;
+    ${renderManager(data)};
+    ${renderEngineer(data)};
+    ${renderIntern(data)};
     return `
     <!DOCTYPE html>
 <html lang="en">
