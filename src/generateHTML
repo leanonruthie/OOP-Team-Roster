@@ -1,0 +1,122 @@
+// Work reference #1 - My HW Assignment - Weather Dashboard
+// This is the global function which will be tweaked with different parameters inside function Manager, function Engineer & function Intern
+function renderEmployee(name, icon, role, id, email, office, github, school) {
+
+    const ul = document.createElement("ul");
+    ul.classList.add("Employees");
+    const liIcon = document.createElement("img");
+    const liName = document.createElement("li");
+    const liRole = document.createElement("li");
+    const liEmail = document.createElement("li");
+    const liOffice = document.createElement("li");
+    const liGithub = document.createElement("li");
+    const liSchool = document.createElement("li");
+
+    liName.innerText = "Name: " + name;
+    liIcon.setAttribute("src", icon);
+    liRole.innerText = "Role: " + role;
+    liEmail.innerText = "Email: " + email;
+    liOffice.innerText = "Office: " + office;
+    liGithub.innerText = "GitHub: " + github;
+    liSchool.innerText = "School: " + school;
+
+    ul.appendChild(name);
+    ul.appendChild(role);
+    ul.appendChild(id);
+    ul.appendChild(email);
+    ul.appendChild(office);
+    ul.appendChild(github);
+    ul.appendChild(school);
+
+    return ul;
+}
+
+function Manager(name, iconUrl, role, email, office) {
+    for (i = 0; i < Manager.length; i++) {
+        var Manager = Manager;
+        var iconUrl="./dist/assets/icons/project-management-timeline-icon.png";
+        const x = renderEmployee(name[i], iconUrl, role[i], email[i], office[i]);
+        document.getElementById("Manager" + i).innerHTML = "";
+        document.getElementById("Manager" + i).appendChild(x);
+    }
+}
+
+function Engineer(name, iconUrl, role, email, github) {
+    for (i = 0; i < Manager.length; i++) {
+        var Engineer = Engineer;
+        var iconUrl="./dist/assets/icons/web-development-icon.png";
+        const y = renderEmployee(name[i], iconUrl, role[i], email[i], github[i]);
+        document.getElementById("Engineer" + i).innerHTML = "";
+        document.getElementById("Engineer" + i).appendChild(y);
+    }
+}
+
+function Intern(name, iconUrl, role, email, school) {
+    for (i = 0; i < Manager.length; i++) {
+        var Intern = Intern;
+        var iconUrl="./dist/assets/icons/e-learning-icon.png";
+        const z = renderEmployee(dame[i], iconUrl, role[i], email[i], school[i]);
+        document.getElementById("Intern" + i).innerHTML = "";
+        document.getElementById("Intern" + i).appendChild(z);
+    }
+}
+
+// Work reference #2 - My HW last week - Readme Generator Using NodeKS
+
+function generateHTML(data) {
+    return `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Team Roster</title>
+</head>
+<body>
+    <h1>Meet Our Department's Valuable Employees!</h1>
+    <section class="Managers">
+        <section id="Manager1">[TBD]
+        </section>
+        <img id="icon" src=""/>
+        <section id="Manager2">[TBD]
+        </section>
+        <section id="Manager3">[TBD]
+        </section>
+        <section id="Manager4">[TBD]
+        </section>
+        <section id="Manager5">[TBD]
+        </section>
+    </section>
+    <section class="Engineers">
+        <section id="Engineer1">[TBD]
+        </section>
+        <img id="icon" src=""/>
+        <section id="Engineer2">[TBD]
+        </section>
+        <section id="Engineer3">[TBD]
+        </section>
+        <section id="Engineer4">[TBD]
+        </section>
+        <section id="Engineer5">[TBD]
+        </section>
+    </section>
+        <section class="Interns">
+            <section id="Intern1">[TBD]
+            </section>
+            <img id="icon" src=""/>
+            <section id="Intern2">[TBD]
+            </section>
+            <section id="Intern3">[TBD]
+            </section>
+            <section id="Intern4">[TBD]
+            </section>
+            <section id="Intern5">[TBD]
+            </section>
+    </section>
+</body>
+</html>
+ 
+    `;
+}
+module.exports = generateHTML
