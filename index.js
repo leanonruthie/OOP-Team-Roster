@@ -1,4 +1,4 @@
-// Work Reference - 09-NodeJS - 28-Stu_Mini_Project
+// Work Reference - My HW last week - Readme Generator Using NodeKS
 
 const inquirer = require('inquirer');
 const fs = require('fs');
@@ -6,17 +6,22 @@ const generateHTML = require('./src/generateHTML');
 
 const questions = [{
     type: 'input',
-    name: 'manager',
+    name: 'managerName',
     message: 'What is the name of your manager in your department?',
 },
 {
     type: 'input',
-    name: 'id',
+    name: 'managerID',
     message: 'What is the id of your manager in your department?',
 },
 {
     type: 'input',
-    name: 'email',
+    name: 'managerEmail',
+    message: 'What is the email of your manager in your department?',
+},
+{
+    type: 'input',
+    name: 'office',
     message: 'What is the office number of your manager in your department?',
 },
 {
@@ -32,16 +37,45 @@ const questions = [{
 },
 {
     type: 'input',
+    name: 'engineerName',
+    message: 'What is the name of your engineer in your department?',
+},
+{
+    type: 'input',
+    name: 'engineerID',
+    message: 'What is the id of your engineer in your department?',
+},
+{
+    type: 'input',
+    name: 'engineerEmail',
+    message: 'What is the email of your engineer in your department?',
+},
+{
+    type: 'input',
     name: 'github',
     message: 'What is the github username of your engineer?',
 },
 {
     type: 'input',
+    name: 'internName',
+    message: 'What is the name of your intern in your department?',
+},
+{
+    type: 'input',
+    name: 'internID',
+    message: 'What is the id of your intern in your department?',
+},
+{
+    type: 'input',
+    name: 'internEmail',
+    message: 'What is the email of your intern in your department?',
+},{
+    type: 'input',
     name: 'school',
     message: 'Which school is your intern currently attending?',
 },
 ]
-// From my homework last week
+
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         console.log(fileName)
