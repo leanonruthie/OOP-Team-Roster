@@ -37,14 +37,13 @@ function promptManager() {
             message: 'What is the office number of your manager in your department?',
         },
     ])
-        .then((answers) => {
-            // same language from Manager.js
-            const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
-            employees.push(manager);
-            promptAddition()
-        });
-};
-
+    .then((answers) => {
+        // same language from Manager.js
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+        employees.push(manager);
+        promptAddition()
+    });
+}
 
 function promptAddition() {
     return inquirer.prompt([
@@ -125,9 +124,10 @@ function promptIntern() {
 
 const init = () => {
     promptManager()
-        .then((answers) => fs.writeFileSync('./dist/index.html', generateMarkdown(answers)))
-        .then(() => console.log('Successfully wrote to index.html'))
-        .catch((err) => console.error(err));
-};
-
-init();
+      // Use writeFileSync method to use promises instead of a callback function
+      .then((answers) => fs.writeFileSync('./dist/index.html', generateMarkdown(answers)))
+      .then(() => console.log('Successfully wrote to index.html'))
+      .catch((err) => console.error(err));
+  };
+  
+  init();
