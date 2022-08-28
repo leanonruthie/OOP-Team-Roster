@@ -8,7 +8,7 @@ function renderEmployee(name, icon, role, id, email, office, github, school) {
     const liName = document.createElement("li");
     const liIcon = document.createElement("img");
     const liRole = document.createElement("li");
-    const liId= document.createElement("li");
+    const liId = document.createElement("li");
     const liEmail = document.createElement("li");
     const liOffice = document.createElement("li");
     const liGithub = document.createElement("li");
@@ -35,22 +35,13 @@ function renderEmployee(name, icon, role, id, email, office, github, school) {
 }
 
 // Below are the tweaked functions with correct parameter
-var managerName = ${data.managerName};
-var managerID = ${data.managerID};
-var managerEmail = ${data.managerEmail};
-var managerOffice = `${data.office};
-var engineerName = ${data.engineerName};
-var engineerID = ${data.engineerID};
-var engineerEmail = ${data.engineerEmail};
-var engineerGithub= ${data.github};
-var internName = ${data.internName};
-var internID = ${data.internID};
-var internEmail = ${data.internEmail};
-var internSchool=${data.school};
 
-
-function renderManager() {
+function renderManager(data) {
     for (i = 1; i < 6; i++) {
+        var managerName = `${data.managerName}`;
+        var managerID = `${data.managerID}`;
+        var managerEmail = `${data.managerEmail}`;
+        var managerOffice = `${data.office}`;
         var iconUrl = "./dist/assets/icons/project-management-timeline-icon.png";
         var role = "Manager"
         var github = "Wouldn't you like to know?"
@@ -61,8 +52,12 @@ function renderManager() {
     }
 }
 
-function renderEngineer() {
+function renderEngineer(data) {
     for (i = 1; i < 6; i++) {
+        var engineerName = `${data.engineerName}`;
+        var engineerID = `${data.engineerID}`;
+        var engineerEmail = `${data.engineerEmail}`;
+        var engineerGithub = `${data.github}`;
         var iconUrl = "./dist/assets/icons/web-development-icon.png";
         var role = "Engineer"
         var office = "Wouldn't you like to know?"
@@ -73,8 +68,12 @@ function renderEngineer() {
     }
 }
 
-function renderIntern() {
+function renderIntern(data) {
     for (i = 1; i < 6; i++) {
+        var internName = `${data.internName}`;
+        var internID = `${data.internID}`;
+        var internEmail = `${data.internEmail}`;
+        var internSchool = `${data.school}`;
         var iconUrl = "./dist/assets/icons/project-management-timeline-icon.png";
         var role = "Intern"
         var office = "Wouldn't you like to know?"
@@ -85,53 +84,52 @@ function renderIntern() {
     }
 }
 
-// Work reference #2 - My HW last week - Readme Generator Using NodeKS
+// Work reference #2 - My HW last week - Readme Generator Using NodeJS
 
-function generateHTML(data) {
-    ${renderManager(data)};
-    ${renderEngineer(data)};
-    ${renderIntern(data)};
+function generateMarkdown(data) {
     return `
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Team Roster</title>
-</head>
-<body>
-    <h1>Meet Our Department's Valuable Employees!</h1>
-    <section class="Managers">
-        <section id="Manager1">[TBD]
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Team Roster</title>
+    </head>
+    
+    <body>
+        <h1>Meet Our Department's Valuable Employees!</h1>
+        <section class="Managers">
+            <section id="Manager1">[TBD]
+            </section>
+            <img id="icon" src="" />
+            <section id="Manager2">[TBD]
+            </section>
+            <section id="Manager3">[TBD]
+            </section>
+            <section id="Manager4">[TBD]
+            </section>
+            <section id="Manager5">[TBD]
+            </section>
         </section>
-        <img id="icon" src=""/>
-        <section id="Manager2">[TBD]
+        <section class="Engineers">
+            <section id="Engineer1">[TBD]
+            </section>
+            <img id="icon" src="" />
+            <section id="Engineer2">[TBD]
+            </section>
+            <section id="Engineer3">[TBD]
+            </section>
+            <section id="Engineer4">[TBD]
+            </section>
+            <section id="Engineer5">[TBD]
+            </section>
         </section>
-        <section id="Manager3">[TBD]
-        </section>
-        <section id="Manager4">[TBD]
-        </section>
-        <section id="Manager5">[TBD]
-        </section>
-    </section>
-    <section class="Engineers">
-        <section id="Engineer1">[TBD]
-        </section>
-        <img id="icon" src=""/>
-        <section id="Engineer2">[TBD]
-        </section>
-        <section id="Engineer3">[TBD]
-        </section>
-        <section id="Engineer4">[TBD]
-        </section>
-        <section id="Engineer5">[TBD]
-        </section>
-    </section>
         <section class="Interns">
             <section id="Intern1">[TBD]
             </section>
-            <img id="icon" src=""/>
+            <img id="icon" src="" />
             <section id="Intern2">[TBD]
             </section>
             <section id="Intern3">[TBD]
@@ -140,9 +138,10 @@ function generateHTML(data) {
             </section>
             <section id="Intern5">[TBD]
             </section>
-    </section>
-</body>
-</html>
+        </section>
+    </body>
+    </html>
     `;
 }
-module.exports = generateHTML
+
+module.exports = generateMarkdown;
