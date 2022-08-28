@@ -43,7 +43,8 @@ function promptManager() {
             employees.push(manager);
             promptAddition()
         });
-}
+};
+
 
 function promptAddition() {
     return inquirer.prompt([
@@ -55,7 +56,11 @@ function promptAddition() {
         },
     ])
         .then((answers) => {
-            //TBD
+            if (answers.choice == "Engineer") {
+                promptEngineer();
+            } else if (answers.choice == "Interns") {
+                promptIntern()
+            }
         });
 }
 
@@ -84,7 +89,7 @@ function promptEngineer() {
     ])
         .then((answers) => {
             // same language from Engineer.js
-            const engineer = new Manager(answers.name, answers.id, answers.email, answers.github);
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
             employees.push(engineer);
         });
 }
@@ -113,11 +118,16 @@ function promptIntern() {
     ])
         .then((answers) => {
             // same language from Intern.js
-            const intern = new Manager(answers.name, answers.id, answers.email, answers.intern);
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.intern);
             employees.push(intern);
         });
 }
 
 const init = () => {
-    //TBD
-}
+    promptManager()
+        .then((answers) => fs.writeFileSync('./dist/index.html', generateMarkdown(answers)))
+        .then(() => console.log('Successfully wrote to index.html'))
+        .catch((err) => console.error(err));
+};
+
+init();
