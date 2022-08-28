@@ -1,4 +1,5 @@
-// Work reference #1 - My HW Assignment - Weather Dashboard
+// Work reference #1 - My Homework - Weather Dashboard
+// Work reference #2 - My Homework - Readme Generator
 
 // This is the global html formatting function which will be tweaked with different parameters inside function Manager, function Engineer & function Intern
 function renderEmployee(name, icon, role, id, email, office, github, school) {
@@ -84,10 +85,16 @@ function renderIntern(data) {
     }
 }
 
-// Work reference #2 - My HW last week - Readme Generator Using NodeJS
-
 function generateMarkdown(data) {
-    return `
+    if (data.choice == "Engineer") {
+        renderManager(data);
+        renderEngineer(data);
+    } else if (data.choice == "Intern") {
+      renderManager(data);
+      renderIntern(data);
+    }
+    
+return `
     <!DOCTYPE html>
     <html lang="en">
     
@@ -140,8 +147,8 @@ function generateMarkdown(data) {
             </section>
         </section>
     </body>
-    </html>
-    `;
+    </html>`;
 }
+
 
 module.exports = generateMarkdown;

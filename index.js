@@ -1,14 +1,17 @@
-// Work Reference #1 - 01-Activities/28-Stu_Mini-project/Solved/Bonus/index.js
+// Work Reference #1 - 28-Stu_Mini-project/Main/index.js
+// Work Reference #2 - 01-Activities/24-Stu_Subclasses
+// Work Reference #3 - https://javascript.plainenglish.io/how-to-inquirer-js-c10a4e05ef1f
+// Work Reference #4 - My Homework - Readme Generator
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHTML = require('./src/generateMarkdown.js');
-const Employee = require('./lib/Employee.js');
-const Manager = require('./lib/Manager.js');
-const Engineer = require('./lib/Engineer.js');
-const Intern = require('./lib/Intern.js');
+const generateMarkdown = require('./src/generateMarkdown.js');
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 
-const managerQuestions = () => {
+function promptManager() {
     return inquirer.prompt([
         {
             type: 'input',
@@ -31,74 +34,77 @@ const managerQuestions = () => {
             message: 'What is the office number of your manager in your department?',
         },
         {
-            type: 'confirm',
-            name: 'addition',
-            message: 'Do you want to add an employee to support your employee in your department?',
+            type: 'list',
+            name: 'choice',
+            message: 'Would you like an engineer or an intern?',
+            choices: ['Engineer', 'Intern']
         },
     ]);
-};
+}
 
-const engineerQuestions = () => {
-    return inquirer.prompt([
-    {
-        type: 'list',
-        name: 'choice',
-        message: 'Would you like an engineer or an intern?',
-        choices: ['Engineer', 'Intern']
-    },
-    {
-        type: 'input',
-        name: 'engineerName',
-        message: 'What is the name of your engineer in your department?',
-    },
-    {
-        type: 'input',
-        name: 'engineerID',
-        message: 'What is the id of your engineer in your department?',
-    },
-    {
-        type: 'input',
-        name: 'engineerEmail',
-        message: 'What is the email of your engineer in your department?',
-    },
-    {
-        type: 'input',
-        name: 'github',
-        message: 'What is the github username of your engineer?',
-    },
-]);
-};
-
-const internQuestions = () => {
+function promptEngineer() {
     return inquirer.prompt([
         {
-        type: 'input',
-        name: 'internName',
-        message: 'What is the name of your intern in your department?',
-    },
-    {
-        type: 'input',
-        name: 'internID',
-        message: 'What is the id of your intern in your department?',
-    },
-    {
-        type: 'input',
-        name: 'internEmail',
-        message: 'What is the email of your intern in your department?',
-    }, {
-        type: 'input',
-        name: 'school',
-        message: 'Which school is your intern currently attending?',
-    },
-]);
-};
+            type: 'input',
+            name: 'engineerName',
+            message: 'What is the name of your engineer in your department?',
+        },
+        {
+            type: 'input',
+            name: 'engineerID',
+            message: 'What is the id of your engineer in your department?',
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: 'What is the email of your engineer in your department?',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is the github username of your engineer?',
+        },
+    ]);
+}
+
+function promptIntern() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the name of your intern in your department?',
+        },
+        {
+            type: 'input',
+            name: 'internID',
+            message: 'What is the id of your intern in your department?',
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: 'What is the email of your intern in your department?',
+        }, {
+            type: 'input',
+            name: 'school',
+            message: 'Which school is your intern currently attending?',
+        },
+    ]);
+}
+
+ function moveToChoice() {
+    promptManager()
+     if (answers.choice == "Engineer") {
+        promptEngineer();
+    } else if (answers.choice == "Intern") {
+    promptIntern();
+    };
+}
+
 
 const init = () => {
-    //incorporate all three prompt functions with correct breaks 
-         // Use writeFileSync method to use promises instead of a callback function
-         .then((answers) => fs.writeFileSync('./dist/index.html', generateHTML(answers)))
-         .then(() => console.log('Successfully wrote to index.html'))
-         .catch((err) => console.error(err));
- };
- 
- init();
+    moveToChoice()
+    .then((data) => fs.writeFileSync('./dist/index.html', generateMarkdown(data)))
+    .then(() => console.log('Successfully wrote to index.html'))
+    .catch((err) => console.error(err));
+}
+init();
