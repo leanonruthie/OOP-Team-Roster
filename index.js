@@ -57,16 +57,17 @@ function promptAddition() {
         .then((answers) => {
             if (answers.choice == "Engineer") {
                 promptEngineer();
-            } else if (answers.choice == "Interns") {
+            } else if (answers.choice == "Intern") {
                 promptIntern();
-            } else {
+            } else if (answers.choice == "No") {
                 const htmlPageContent = generateMarkdown(answers)
-                fs.writeFileSync('./dist/index.html', htmlPageContent)
+                .then((answers) => fs.writeFileSync('./dist/index.html', htmlPageContent, answers))
                     .then(() => console.log('Successfully wrote to index.html'))
                     .catch((err) => console.error(err));
             };
         });
-}
+};
+
 
 function promptEngineer() {
     return inquirer.prompt([
