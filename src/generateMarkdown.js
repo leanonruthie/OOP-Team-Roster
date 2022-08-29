@@ -4,13 +4,14 @@
 // Work Reference #4 - My Homework - Readme Generator
 // Work reference #5 - My Brilliant Study Buddies/Tutors
 
+
 function renderTeamRoster(employees) {
+    let employeesArray = [];
+    let eachEmployee = ""
     for (let i = 0; i < employees.length; i++) {
-        const employeesArray = [];
-        const eachEmployee = ""
         eachEmployee = eachEmployee + employeesArray[i];
     }
-    if (eachEmployee.getRole() == "Manager") {
+    if (eachEmployee.role == "Manager") {
         return `<ul id="Managers">
                 <li class="name"> ${managers.getName()}</li>
                 <li class="role"><img src="../dist/assets/icons/project-management-timeline-icon.png"> ${manager.getRole()}</li>
@@ -18,7 +19,7 @@ function renderTeamRoster(employees) {
                 <li class="email">Email: <a href="mailto:${manager.getEmail()}"></a></li>
                 <li class="office">Office: ${manager.getOffice()}</li>
             </ul>`
-    } else if (eachEmployee.getRole() == "Engineer") {
+    } else if (eachEmployee.role == "Engineer") {
         return `<ul id="Engineers">
                 <li class="name"> ${engineer.getName()}</li>
                 <li class="role"><img src="../dist/assets/icons/web-development-icon.png"> ${engineer.getRole()}</li>
@@ -26,7 +27,7 @@ function renderTeamRoster(employees) {
                 <li class="email">Email: <a href="mailto:${engineer.getEmail()}"></a></li>
                 <li class="office">GitHub: <a href = "https://github.com/${engineer.getGithub()}" target="blank"></a></li>
             </ul>`
-    } else if (eachEmployee.getRole() == "Intern") {
+    } else if (eachEmployee.role == "Intern") {
         return `<ul id="Interns">
                 <li class="name"> ${intern.getName()}</li>
                 <li class="role"><img src="../dist/assets/icons/e-learning-icon.png"> ${intern.getRole()}</li>

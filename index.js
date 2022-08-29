@@ -59,15 +59,14 @@ function promptAddition() {
                 promptEngineer();
             } else if (answers.choice == "Intern") {
                 promptIntern();
-            } else if (answers.choice == "No") {
-                const htmlPageContent = generateMarkdown(answers)
-                .then((answers) => fs.writeFileSync('./dist/index.html', htmlPageContent, answers))
-                    .then(() => console.log('Successfully wrote to index.html'))
-                    .catch((err) => console.error(err));
+            } else {
+                const htmlPageContent = generateMarkdown(employees);
+                fs.writeFile('./dist/index.html', htmlPageContent, (err) =>
+                err ? console.log(err) : console.log('Successfully created dist/index.html!')
+                );
             };
         });
-};
-
+    }   
 
 function promptEngineer() {
     return inquirer.prompt([
@@ -131,3 +130,15 @@ function promptIntern() {
 }
 
 promptManager();
+
+// If I have more time, I'll try to work on "Bonus using writeFileSync as a promise" from Stu_Mini_Project
+// const init = () => {
+//     promptManager()
+        // Use writeFileSync method to use promises instead of a callback function
+//       .then((answers) => fs.writeFileSync('index.html', generateMarkdown(answers)))
+//       .then(() => console.log('Successfully wrote to index.html'))
+//       .catch((err) => console.error(err));
+//   };
+  
+//   init();
+
