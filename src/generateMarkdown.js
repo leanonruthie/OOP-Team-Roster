@@ -15,7 +15,7 @@ function renderTeamRoster(team) {
         <li class="role"><img src="../dist/assets/icons/project-management-timeline-icon.png"> ${manager.getRole()}</li>
         <li class="id">ID: ${manager.getId()}</li>
         <li class="email">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-        <li class="office">Office: ${manager.getOffice()}</li>
+        <li class="office">Office: ${manager.getOfficeNumber()}</li>
         </ul>`
     }
     html.push(team

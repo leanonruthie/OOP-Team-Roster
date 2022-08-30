@@ -12,6 +12,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// Please see line 64 to see where this const was used (inside promptAddition() else clause)
 const employees = [];
 
 function promptManager() {
