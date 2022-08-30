@@ -34,3 +34,6 @@ THEN I am able to see their GitHub profile in a new tab
 
 ## Video
 This can now be directly inserted in GitHub as seen below:
+
+https://user-images.githubusercontent.com/107362875/187519727-884d8f15-3aec-4582-91b3-c05e65cf3d75.mp4
+
