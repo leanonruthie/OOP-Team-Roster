@@ -3,6 +3,8 @@
 // Work Reference #3 - https://javascript.plainenglish.io/how-to-inquirer-js-c10a4e05ef1f
 // Work Reference #4 - My Homework - Readme Generator
 // Work reference #5 - My Brilliant Study Buddies/Tutors/TA/Instructor
+// Work reference #6 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// Work reference #7 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 const inquirer = require('inquirer');
 const fs = require('fs');
@@ -116,7 +118,8 @@ function promptIntern() {
             type: 'input',
             name: 'email',
             message: 'What is the email of your intern in your department?',
-        }, {
+        }, 
+        {
             type: 'input',
             name: 'school',
             message: 'Which school is your intern currently attending?',

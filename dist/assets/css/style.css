@@ -1,0 +1,75 @@
+body{
+    font-family: sans-serif;
+    color:white;
+}
+
+h1 {
+background-color: coral;
+font-size: 17px;
+padding-top:7px;
+padding-bottom: 7px;
+width:100%;
+height:11%;
+text-align: center;
+}
+
+li{
+    padding-top:7px;
+    padding-bottom:7px;
+    background-color:white;
+    color:black;
+    font-size: 17px;
+    padding:3px;
+    margin:3px;
+    border: 1px solid darkgrey;
+}
+
+img{
+    height:23px;
+}
+
+ul{
+    list-style-type: none;
+}
+#Engineers{
+    width:270px;
+    height: 180px;
+    display: inline-block;
+    background-color: lightseagreen;
+    border: 1px solid darkgrey;
+    padding:7px;
+    margin-left: 11px;
+}
+
+#Interns{
+    width:270px;
+    height: 180px;
+    display: inline-block;
+    background-color: teal;
+    border: 1px solid darkgrey;
+    padding:7px;
+    margin-left: 11px;
+}
+
+#Managers{
+    width:270px;
+    height: 180px;
+    display: inline-block;
+    background-color: turquoise;
+    border: 1px solid darkgrey;
+    padding:7px;
+    margin-left: 11px;
+}
+
+.name {
+    font-weight: bolder;
+    font-size: 23px;
+    text-align: center;
+
+}
+
+.role {
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 11px;
+}

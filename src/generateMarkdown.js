@@ -3,10 +3,12 @@
 // Work Reference #3 - https://javascript.plainenglish.io/how-to-inquirer-js-c10a4e05ef1f
 // Work Reference #4 - My Homework - Readme Generator
 // Work reference #5 - My Brilliant Study Buddies/Tutors/TA/Instructor
+// Work reference #6 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// Work reference #7 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
 
 function renderTeamRoster(team) {
-    // Incorporate help from TA
+    // Incorporate sample from TA instead of running a conventional for loop - Work References #6 and #7
     const html = [];
     // Set const for manager => {} then return the below html content for managers
     const renderManager = manager => {

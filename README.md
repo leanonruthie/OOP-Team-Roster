@@ -27,11 +27,10 @@ THEN I am able to see their GitHub profile in a new tab
 ```
 
 ## Screenshot
-
+<img src="./dist/assets/icons/127.0.0.1_5500_dist_index.html.png"/>
 
 ## Deliverables
-* Sample HTML:
-* GitHub Repository:
+* GitHub Repository: https://github.com/leanonruthie/OOP-Team-Roster.git
 
 ## Video
 This can now be directly inserted in GitHub as seen below:
