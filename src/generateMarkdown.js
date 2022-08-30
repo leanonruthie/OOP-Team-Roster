@@ -6,56 +6,55 @@
 
 
 function renderTeamRoster(team) {
-    //Help from TA
+    // Incorporate help from TA
     const html = [];
-    html.push(team
-    //Help from TA
-    // filter out all employees by getRole() returning "Manager"
-    .filter(employee => employee.getRole() === "Manager")
-    .map(manager => renderManager(manager))
-    );
-    // return the below html content for managers
+    // Set const for manager => {} then return the below html content for managers
     const renderManager = manager => {
         return `<ul id="Managers">
         <li class="name"> ${manager.getName()}</li>
         <li class="role"><img src="../dist/assets/icons/project-management-timeline-icon.png"> ${manager.getRole()}</li>
         <li class="id">ID: ${manager.getId()}</li>
-        <li class="email">Email: <a href="mailto:${manager.getEmail()}"></a></li>
+        <li class="email">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
         <li class="office">Office: ${manager.getOffice()}</li>
         </ul>`
     }
     html.push(team
-    // filter out all employees by getRole() returning "Engineer"
+    // Now filter out all employees by getRole() returning "Manager"
+    .filter(employee => employee.getRole() === "Manager")
+    .map(manager => renderManager(manager))
+    );
+    // Set const for engineer => {} then return the below html content for managers
+    const renderEngineer = engineer => {
+        return `<ul id="Engineers">
+                <li class="name"> ${engineer.getName()}</li>
+                <li class="role"><img src="../dist/assets/icons/web-development-icon.png"> ${engineer.getRole()}</li>
+                <li class="id">ID: ${engineer.getId()}</li>
+                <li class="email">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                <li class="office">GitHub: <a href = "https://github.com/${engineer.getGithub()}" target="blank">${engineer.getGithub()}</a></li>
+            </ul>`
+    }
+    html.push(team
+    // Now filter out all employees by getRole() returning "Engineer"
         .filter(employee => employee.getRole() === "Engineer")
         .map(engineer => renderEngineer(engineer))
     );
-    // return the below html content for managers
-    const renderEngineer = engineer => {
-        return `<ul id="Engineers">
-                <li class="name"> ${engineer.name}</li>
-                <li class="role"><img src="../dist/assets/icons/web-development-icon.png"> ${engineer.role}</li>
-                <li class="id">ID: ${engineer.id}</li>
-                <li class="email">Email: <a href="mailto:${engineer.email}"></a></li>
-                <li class="office">GitHub: <a href = "https://github.com/${engineer.github}" target="blank"></a></li>
+    //  Set const for intern => {} then return the below html content for managers
+    const renderIntern = intern => {
+        return `<ul id="Interns">
+                <li class="name"> ${intern.getName()}</li>
+                <li class="role"><img src="../dist/assets/icons/e-learning-icon.png"> ${intern.getRole()}</li>
+                <li class="id">ID: ${intern.getId()}</li>
+                <li class="email">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                <li class="office">School: ${intern.getSchool()}</li>
             </ul>`
     }
+    // Now filter out all employees by getRole() returning "Intern"
     html.push(team
         .filter(employee => employee.getRole() === "Intern")
         .map(intern => renderIntern(intern))
     );
-    // return the below html content for managers
-    const renderIntern = intern => {
-        return `<ul id="Interns">
-                <li class="name"> ${intern.name}</li>
-                <li class="role"><img src="../dist/assets/icons/e-learning-icon.png"> ${intern.role}</li>
-                <li class="id">ID: ${intern.id}</li>
-                <li class="email">Email: <a href="mailto:${intern.email}"></a></li>
-                <li class="office">School: ${intern.school}</li>
-            </ul>`
-    }
         return html.join("");
     }
-
 
 function generateMarkdown(team) {
     return `<!DOCTYPE html>
