@@ -2,7 +2,7 @@
 // Work Reference #2 - 01-Activities/24-Stu_Subclasses
 // Work Reference #3 - https://javascript.plainenglish.io/how-to-inquirer-js-c10a4e05ef1f
 // Work Reference #4 - My Homework - Readme Generator
-// Work reference #5 - My Brilliant Study Buddies/Tutors
+// Work reference #5 - My Brilliant Study Buddies/Tutors/TA/Instructor
 
 const inquirer = require('inquirer');
 const fs = require('fs');
@@ -37,9 +37,9 @@ function promptManager() {
             message: 'What is the office number of your manager in your department?',
         },
     ])
-        .then((name, id, email, office) => {
+        .then((answers) => {
             // same language from Manager.js
-            const manager = new Manager(name, id, email, office);
+            const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
             employees.push(manager);
             promptAddition()
         });
@@ -91,9 +91,9 @@ function promptEngineer() {
             message: 'What is the github username of your engineer?',
         },
     ])
-        .then((name, id, email, github) => {
+        .then((answers) => {
             // same language from Engineer.js
-            const engineer = new Engineer(name, id, email, github);
+            const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
             employees.push(engineer);
             promptAddition();
         });
@@ -121,9 +121,9 @@ function promptIntern() {
             message: 'Which school is your intern currently attending?',
         },
     ])
-        .then((name, id, email, school) => {
+        .then((answers) => {
             // same language from Intern.js
-            const intern = new Intern(name, id, email, school);
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
             employees.push(intern);
             promptAddition();
         });
@@ -135,7 +135,7 @@ promptManager();
 // const init = () => {
 //     promptManager()
         // Use writeFileSync method to use promises instead of a callback function
-//       .then((answers) => fs.writeFileSync('index.html', generateMarkdown(answers)))
+//       .then((answers) => fs.writeFileSync('./dist/index.html', generateMarkdown(answers)))
 //       .then(() => console.log('Successfully wrote to index.html'))
 //       .catch((err) => console.error(err));
 //   };
