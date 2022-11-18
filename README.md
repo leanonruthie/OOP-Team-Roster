@@ -30,7 +30,7 @@ THEN I am able to see their GitHub profile in a new tab
 <img src="./dist/assets/icons/127.0.0.1_5500_dist_index.html.png"/>
 
 ## Deliverables
-* GitHub Repository: https://github.com/leanonruthie/OOP-Team-Roster.git
+[GitHub Repository](https://github.com/leanonruthie/OOP-Team-Roster.git)
 
 ## Video
 This can now be directly inserted in GitHub as seen below:
